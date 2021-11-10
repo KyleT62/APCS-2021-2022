@@ -15,12 +15,15 @@ public class WhileLoops {
         return a;
     }
 
-    public int sumDigits(int a){
-        int count = 0;
+    public static int sumDigits(int a){
+        int hold;
+        int temp;
         int sum = 0;
-        while(count <= a)
+        while(sum >= 0)
         {
-
+            temp = a % 10;
+            hold  = temp / 10;
+            sum += hold;
         }
         return sum;
     }
@@ -29,5 +32,9 @@ public class WhileLoops {
         System.out.println(addOdds(10));
         System.out.println(addOdds(16));
         System.out.println(addOdds(20));
+
+        System.out.println();
+
+        System.out.println(sumDigits(123));
     }
 }

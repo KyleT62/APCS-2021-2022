@@ -1,8 +1,8 @@
 package com.company;
 
 public class Factorials {
-    public int calcFactorial (int n) {
-        int fact = 1;
+    public long calcFactorial (int n) {
+        long fact = 1;
         for (int i = 2; i <= n; i++) {
             fact = fact * i;
         }
@@ -11,7 +11,7 @@ public class Factorials {
 
     public double calcE(){
 
-        int hold;
+        long hold;
         int n = 2;
         double e = 2.0;
         double oldE = 0;
@@ -29,9 +29,10 @@ public class Factorials {
     }
     public double calcEX(double x){
 
-        int hold;
+        long hold;
+        double num;
         int n = 2;
-        int inc = 1;
+        double inc = 0;
         double e = 2.0;
         double oldE = 0;
 
@@ -41,9 +42,9 @@ public class Factorials {
             oldE = e;
             hold = calcFactorial(n);
             n++;
-            e += x / hold;
+            num = Math.pow(x,inc);
             inc++;
-
+            e += (num / hold);
         }
         return e; //fix
     }
@@ -63,8 +64,12 @@ public class Factorials {
 
         System.out.println();
 
-        System.out.println(test.calcEX(1));
-        System.out.println(test.calcEX(2));
-        System.out.println(test.calcEX(3));
+        int a = 0;
+        for (int i = 1; i <= 5; i++){
+            a++;
+            System.out.println(test.calcEX(a));
+        }
     }
+
+
 }

@@ -54,16 +54,17 @@ public class Factorials {
 
         System.out.println();
 
-        System.out.println(test.calcE());
+        System.out.printf("e is %2.3f \n", test.calcE());
 
         System.out.println();
 
         int a = 1;
         for (int i = 1; i < 6; i++){
-            System.out.println(test.calcEX(a));
+            System.out.printf("e is %2.3f \n", test.calcEX(a));
             a++;
         }
     }
+
 }
 
 /*
@@ -90,12 +91,11 @@ OUTPUT
 121645100408832000
 2432902008176640000
 
-2.7182539682539684
+e is 2.718
 
-2.7182539682539684
-7.388994708994708
-20.08546859390609
-54.5978829056501
-148.4129510721643
-
+e is 2.718
+e is 7.389
+e is 20.085
+e is 54.598
+e is 148.413
  */

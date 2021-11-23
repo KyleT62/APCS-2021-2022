@@ -47,8 +47,9 @@ public class forLoops {
             for ( int y = i; y > 0; y--){
                 System.out.print("*");
             }
-            for (int b = 0; i > b; b++)
+            for (int b = 0; i > b; b++) {
                 System.out.print("*");
+            }
             for (int j = i; j > 0; j--){
                 System.out.print("$");
             }

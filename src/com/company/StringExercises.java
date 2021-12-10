@@ -41,8 +41,13 @@ public class StringExercises {
         return false;
     }
     public static String removeTag(String html, String remove){
-        if()
-        //html.replace("<" + remove +">", "").replace("</" + remove + ">","");
+        String str = html;
+        String startTag = "<" + remove + ">";
+        String endTag = "<" + remove + "/>";
+        if(html.contains(startTag) && html.contains(endTag)){
+            str = html.replace("<"+remove+">","").replace("</"+remove+">","");
+        }
+        return str;
     }
 
     public static void main(String[] args) {

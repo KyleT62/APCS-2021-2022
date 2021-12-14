@@ -16,10 +16,14 @@ public class StringExercises {
     public static String dateString(String date){
         return date.replace("/","-");
     }
-    public static String dateString2(String date2){ // CONVERT NORMAL DATE INTO DD-MM-YYYY THIS IS THE OPPOSITE WAY
-        String extraCheck = "0";
+    public static String dateString2(String date2){
         String str = date2;
-        //fix see comment above
+        if(str.substring(0,2).contains("0") != true){
+            str = "0" + str;
+        }
+        if(str.substring(3,5).contains("0") != true){
+            str = str.substring(0,3) + "0" + str.substring(3);
+        }
         return str.replace("/","-");
     }
     public static Boolean startsWith(String s, String prefix){
@@ -43,10 +47,13 @@ public class StringExercises {
     public static String removeTag(String html, String remove){
         String str = html;
         String startTag = "<" + remove + ">";
-        String endTag = "<" + remove + "/>";
-        if(html.contains(startTag) && html.contains(endTag)){
-            str = html.replace("<"+remove+">","").replace("</"+remove+">","");
+        String endTag = "</" + remove + ">";
+        if(str.contains(startTag) && str.contains(endTag)){
+            if(str.indexOf(startTag,1) <= str.indexOf(endTag,1)) {
+                str = html.replace(startTag, "").replace("</" + remove + ">", "");
+            }
         }
+
         return str;
     }
 
@@ -104,3 +111,48 @@ public class StringExercises {
         System.out.println(removeTag("Happy <b>Hello World</b> Birthday", "b"));
     }
 }
+
+/*
+OUTPUT
+ello WorldH
+appyh
+h
+
+Lori Renee Reubenstein
+Joe Biden
+Bozo the Clown
+
+1101000110
+00000000
+
+04/20/2014 becomes 04-20-2014
+
+04/20/2014 becomes 04-20-2014
+4/20/2014 becomes 04-20-2014
+04/2/2014 becomes 04-02-2014
+4/2/2014 becomes 04-02-2014
+
+startsWith
+true
+true
+false
+false
+true
+
+endsWith
+true
+true
+false
+false
+true
+
+removeTag
+Hello World
+<b>Hello World</b>
+Hello World</b>
+<b>Hello World
+</img>Hello World<img>
+Happy Birthday Hello World
+Hello World Happy Birthday
+Happy Hello World Birthday
+ */

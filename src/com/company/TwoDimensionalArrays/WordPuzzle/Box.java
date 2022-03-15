@@ -1,4 +1,4 @@
-package com.company.ClassesAndMethods.Box;
+package com.company.TwoDimensionalArrays.WordPuzzle;
 
 public class Box {
     private boolean isBlack;

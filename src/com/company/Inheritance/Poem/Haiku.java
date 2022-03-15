@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Inheritance.Poem;
 
 public class Haiku extends Poem {
     public Haiku() {

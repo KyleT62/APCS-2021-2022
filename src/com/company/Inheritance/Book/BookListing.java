@@ -1,5 +1,4 @@
-package com.company;
-
+package com.company.Inheritance.Book;
 public class BookListing {
     public Book book;
     public double Price;

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Inheritance.Book;
 
 public class Book
 {

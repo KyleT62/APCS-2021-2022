@@ -1,4 +1,4 @@
-package com.company.Inheritance;
+package com.company.Inheritance.BankAccount;
 
 /**
  * @author lreubenstein

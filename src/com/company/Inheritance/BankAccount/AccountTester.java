@@ -1,4 +1,6 @@
-package com.company.Inheritance;
+package com.company.Inheritance.BankAccount;
+
+import jdk.swing.interop.SwingInterOpUtils;
 
 public class AccountTester {
 
@@ -11,7 +13,7 @@ public class AccountTester {
         ca.deposit(50.0);
         System.out.println("365.5 " + ca.currentBalance());
 
-        SavingsAccount sa = new SavingsAccount(1234, 300.0, .04);
+        SavingsAccount sa = new SavingsAccount(1234, 300.0, 0.04);
         System.out.println("Savings account " + sa.currentBalance());
         sa.deposit(50.0);
         sa.withdraw(600.0);
@@ -30,14 +32,16 @@ public class AccountTester {
         sca2.deposit(245.0);
         System.out.println("895.0 " + sca2.currentBalance());
 
+        System.out.println();
+
         Account [] accounts = {ca, sa, sca1, sca2};
         for(Account a: accounts){
             System.out.println("Account " + a.idNumber());
             System.out.println("Balance " + a.currentBalance());
             System.out.println("Interest " + a.monthlyInterest());
+            System.out.println();
         }
         System.out.println("Interest: 1.0, .833, 1.0, 3.73");
-
     }
 
 }

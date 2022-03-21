@@ -1,4 +1,4 @@
-package com.company.Inheritance;
+package com.company.Inheritance.BankAccount;
 
 public abstract class Account {
     private int idNum;
@@ -27,7 +27,7 @@ public abstract class Account {
     }
     public void decreaseBalance(double amount)
     {
-        balance -=amount;
+        balance -= amount;
     }
 
     public abstract double monthlyInterest();

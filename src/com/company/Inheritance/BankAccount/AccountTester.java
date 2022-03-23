@@ -13,6 +13,8 @@ public class AccountTester {
         ca.deposit(50.0);
         System.out.println("365.5 " + ca.currentBalance());
 
+        System.out.println();
+
         SavingsAccount sa = new SavingsAccount(1234, 300.0, 0.04);
         System.out.println("Savings account " + sa.currentBalance());
         sa.deposit(50.0);
@@ -20,11 +22,15 @@ public class AccountTester {
         sa.withdraw(100.0);
         System.out.println("250.0 " +sa.currentBalance());
 
+        System.out.println();
+
         SpecialCheckingAccount sca1 = new SpecialCheckingAccount(1235, 350.0, 2.5, 0.05, 500.0);
         System.out.println("Special Account " + sca1.currentBalance());
         sca1.clearCheck(200.0);
         sca1.deposit(100);
         System.out.println("247.5 " + sca1.currentBalance());
+
+        System.out.println();
 
         SpecialCheckingAccount sca2 = new SpecialCheckingAccount(1236, 850.0, 2.5, .05, 400.0);
         System.out.println("Special Account " + sca2.currentBalance());
@@ -45,3 +51,33 @@ public class AccountTester {
     }
 
 }
+
+/*
+Output:
+Checking account 567.5
+365.5 365.5
+Savings account 300.0
+250.0 250.0
+Special Account 350.0
+247.5 247.5
+Special Account 850.0
+895.0 895.0
+
+Account 1233
+Balance 365.5
+Interest 1.0
+
+Account 1234
+Balance 250.0
+Interest 0.8333333333333334
+
+Account 1235
+Balance 247.5
+Interest 1.0
+
+Account 1236
+Balance 895.0
+Interest 3.7291666666666665
+
+Interest: 1.0, .833, 1.0, 3.73
+ */

@@ -9,10 +9,17 @@ public class SpecialCheckingAccount extends CheckingAccount{
         minimumBalance = minBal;
     }
     public double monthlyInterest(){
-        double ret = (super.currentBalance()*interest)/12;
         if(super.currentBalance() > minimumBalance){
-            return ret;
+            return (super.currentBalance()*interest)/12;
         }
             return super.monthlyInterest();
+    }
+    public void clearCheck(double amount)
+    {
+        if(super.currentBalance() > minimumBalance){
+            super.decreaseBalance(amount);
+        } else {
+            super.clearCheck(amount);
+        }
     }
 }

@@ -40,8 +40,10 @@ public class Peg {
     }
     public int popDisc()
     {
-        // TODO remove the top disc from the peg.  Return its value.
-
+        int pegSize = discs[count-1];
+        discs[count-1] = 0;
+        count--;
+        return pegSize;
     }
     public boolean moveTopDisc(Peg newPeg)
     {

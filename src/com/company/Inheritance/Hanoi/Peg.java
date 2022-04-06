@@ -26,10 +26,10 @@ public class Peg {
         String s = "Peg " + pegNum;
         return s;
     }
-    public boolean addDisc(int whichOne)
+    public boolean addDisc(int whichDisk)
     {
-        if(count == 0 || discs[count-1] > whichOne){
-            discs[count] = whichOne;
+        if(count == 0 || discs[count-1] > whichDisk){
+            discs[count] = whichDisk;
             count++;
             return true;
         }

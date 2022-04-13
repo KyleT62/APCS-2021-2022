@@ -18,48 +18,38 @@ public class BoxFractal extends JPanel{
         int xCenter = getWidth() / 2;
         int yCenter = getHeight() / 2;
 
-
-        int [] xcoord = {xCenter - 128, xCenter-128, xCenter + 128, xCenter + 128};
-        int [] ycoord = {yCenter-128, yCenter + 128, yCenter + 128, yCenter - 128};
         int x = xCenter - 243;
         int y = yCenter - 243;
+
         int width = 486;
         int height = 486;
 
         g.setColor(Color.RED);
-        drawAndSplit(g, xcoord, ycoord, levels);
+        drawAndSplit(g, x, y, width, height, levels);
 
     }
-
-    public void newPoint(int [] x, int [] y, int size){
-        x[0] = 0;
-        y[0] = 0;
-    }
-    public int [] midpoints(int [] x)
-    {
-        int [] m = new int [4];
-
-        m[0] = (x[0] + x[1])/2;
-        m[1] = (x[1] + x[2])/2;
-        m[2] = (x[2] + x[3])/2;
-        m[3] = (x[3] + x[0])/2;
-
-        return m;
-    }
-
-    public void drawAndSplit(Graphics g, int [] x, int [] y, int times)
+    public void drawAndSplit(Graphics g, int x, int y, int width, int height, int times)
     {
         if(times == 0){
             return;
         }
-
+        if(times == 1){
+            g.fillRect(x,y,width,height);
+        }
+        else{
+            drawAndSplit(g, x, y, height / 3, width / 3, times - 1);
+            drawAndSplit(g, x + 2 * (width / 3), y, height / 3, width / 3, times - 1);
+            drawAndSplit(g, x, y + 2 * (height / 3), height / 3, width / 3, times - 1);
+            drawAndSplit(g, x + 2 * (width / 3), y + 2 * (height / 3), height / 3, width / 3, times - 1);
+            drawAndSplit(g, x + (width / 3), y + (height / 3), height / 3, width / 3, times - 1);
+        }
     }
     public static void main(String[] args)
     {
         JFrame window = new JFrame("Fractals");
         window.setBounds(200, 200, 500, 500);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BoxFractal panel = new BoxFractal(5);
+        BoxFractal panel = new BoxFractal(2);
         panel.setBackground(Color.WHITE);
         Container c = window.getContentPane();
         c.add(panel);

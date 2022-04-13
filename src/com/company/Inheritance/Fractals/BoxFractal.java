@@ -30,6 +30,7 @@ public class BoxFractal extends JPanel{
     }
     public void drawAndSplit(Graphics g, int x, int y, int width, int height, int times)
     {
+        int length = height / 3;
         if(times == 0){
             return;
         }
@@ -37,11 +38,11 @@ public class BoxFractal extends JPanel{
             g.fillRect(x,y,width,height);
         }
         else{
-            drawAndSplit(g, x, y, height / 3, width / 3, times - 1);
-            drawAndSplit(g, x + 2 * (width / 3), y, height / 3, width / 3, times - 1);
-            drawAndSplit(g, x, y + 2 * (height / 3), height / 3, width / 3, times - 1);
-            drawAndSplit(g, x + 2 * (width / 3), y + 2 * (height / 3), height / 3, width / 3, times - 1);
-            drawAndSplit(g, x + (width / 3), y + (height / 3), height / 3, width / 3, times - 1);
+            drawAndSplit(g, x, y, length, length, times - 1);
+            drawAndSplit(g, x + 2 * (length), y, length, length, times - 1);
+            drawAndSplit(g, x, y + 2 * (length), length, length, times - 1);
+            drawAndSplit(g, x + 2 * (length), y + 2 * (length), length, height / 3, times - 1);
+            drawAndSplit(g, x + (length), y + (length), length, length, times - 1);
         }
     }
     public static void main(String[] args)
@@ -49,7 +50,7 @@ public class BoxFractal extends JPanel{
         JFrame window = new JFrame("Fractals");
         window.setBounds(200, 200, 500, 500);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BoxFractal panel = new BoxFractal(2);
+        BoxFractal panel = new BoxFractal(3);
         panel.setBackground(Color.WHITE);
         Container c = window.getContentPane();
         c.add(panel);
